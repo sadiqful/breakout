@@ -103,3 +103,19 @@ if (paddle.x < 0) {
 }
 
 }
+
+// moving ball
+
+function moveBall() {
+    ball.x += ball.dx;
+    ball.y += ball.dy;
+
+    if (ball.x + ball.size > canvas.width || ball.x - ball.size < 0) {
+        ball.dx *= -1;
+    }
+
+    if (ball.y + ball.size > canvas.height || ball.y - ball.size < 0) {
+        ball.dy *= -1;
+    }
+
+}
