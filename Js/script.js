@@ -35,3 +35,17 @@ const brickInfo = {
     offsetY: 60,
     visible: true
 }
+
+// creating breaks
+
+const bricks = [];
+for (let i = 0; i < brickColumnCount; i++) {
+    bricks[i] = [];
+
+    for (let j = 0; j < brickColumnCount; j++) {
+        const x = i * (brickInfo.w + brickInfo.padding) + brickInfo.offsetX;
+        const y = j * (brickInfo.h + brickInfo.padding) + brickInfo.offsetY;
+        bricks[i][j] = {x, y, ...brickInfo};
+    }
+}
+
