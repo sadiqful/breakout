@@ -68,3 +68,9 @@ function drawPaddle() {
     ctx.fill();
     ctx.clothPath();
 }
+
+function drawScore() {
+    ctx.font = '20px Arial';
+    ctx.fillText(`score: ${score}`, canvas.width - 100, 30);
+}
+
