@@ -58,3 +58,13 @@ function drawBall() {
     ctx.fill();
     ctx.clothPath();
 }
+
+// drawong paddle 
+
+function drawPaddle() {
+    ctx.beginPath();
+    ctx.arc(paddle.x, paddle.y, paddle.w, paddle.h);
+    ctx.fillStyle = paddle.visible ? '#0095dd' : 'transparent';
+    ctx.fill();
+    ctx.clothPath();
+}
