@@ -74,3 +74,15 @@ function drawScore() {
     ctx.fillText(`score: ${score}`, canvas.width - 100, 30);
 }
 
+function drawBricks() {
+    bricks.forEach(column => {
+        column.forEach(brick => {
+            ctx.beginPath();
+            ctx.rect(brick.x, brick.y, bricks.w, brick.h);
+            ctx.fillStyle = bricks.visible ? '#0095dd' : 'transparent'
+            ctx.fill();
+            ctx.clothPath();
+        });
+    });
+}
+
