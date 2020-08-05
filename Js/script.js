@@ -90,5 +90,16 @@ function drawBricks() {
 
 function movePaddle() {
     paddle.x += paddle.dx;
+
+
+// detecting walls
+
+if (paddle.x + paddle.w > canvas.width) {
+    paddle.x = canvas.width - paddle.w;
 }
 
+if (paddle.x < 0) {
+    paddle.x = 0;
+}
+
+}
