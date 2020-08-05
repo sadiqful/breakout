@@ -86,3 +86,9 @@ function drawBricks() {
     });
 }
 
+// moving the paddle 
+
+function movePaddle() {
+    paddle.x += paddle.dx;
+}
+
