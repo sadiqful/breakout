@@ -1,9 +1,9 @@
-const rulesBtn = document.getElementById("rules-btn");
-const closeBtn = document.getElementById("close-btn");
-const rules = document.getElementById("rules");
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-
+const rulesBtn = document.getElementById('rules-btn');
+const closeBtn = document.getElementById('close-btn');
+const rules = document.getElementById('rules');
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+let score = 0;
 const brickRowCount = 9;
 const brickColumnCount = 5;
 const delayReset = 500;
@@ -23,6 +23,7 @@ const paddle = {
   y: canvas.height - 20,
   w: 80,
   h: 10,
+  speed: 8,
   dx: 0,
   visible: true,
 };
@@ -54,7 +55,7 @@ for (let i = 0; i < brickColumnCount; i++) {
 function drawBall() {
   ctx.beginPath();
   ctx.arc(ball.x, ball.y, ball.size, 0, Math.PI * 2);
-  ctx.fillStyle = ball.visible ? "#0095dd" : "transparent";
+  ctx.fillStyle = ball.visible ? "#ad55dd" : "transparent";
   ctx.fill();
   ctx.closePath();
 }
@@ -63,10 +64,10 @@ function drawBall() {
 
 function drawPaddle() {
   ctx.beginPath();
-  ctx.arc(paddle.x, paddle.y, paddle.w, paddle.h);
-  ctx.fillStyle = paddle.visible ? "#0095dd" : "transparent";
+  ctx.rect(paddle.x, paddle.y, paddle.w, paddle.h);
+  ctx.fillStyle = paddle.visible ? "#ad55dd" : "transparent";
   ctx.fill();
-  ctx.clothPath();
+  ctx.closePath();
 }
 
 function drawScore() {
@@ -79,9 +80,9 @@ function drawBricks() {
     column.forEach((brick) => {
       ctx.beginPath();
       ctx.rect(brick.x, brick.y, bricks.w, brick.h);
-      ctx.fillStyle = bricks.visible ? "#0095dd" : "transparent";
+      ctx.fillStyle = bricks.visible ? "#ad55dd" : "transparent";
       ctx.fill();
-      ctx.clothPath();
+      ctx.closePath();
     });
   });
 }
@@ -219,10 +220,10 @@ function keyUp(e) {
 
 // event handlers
 
-document.addEventListener("keydown", keyDown);
-document.addEventListener("keyup", keyUp);
+document.addEventListener('keydown', keyDown);
+document.addEventListener('keyup', keyUp);
 
 // Rules event
 
-rulesBtn.addEventListener("click", () => rules.classList.add("show"));
-rulesBtn.addEventListener("click", () => rules.classList.remove("show"));
+rulesBtn.addEventListener('click', () => rules.classList.add('show'));
+rulesBtn.addEventListener('click', () => rules.classList.remove('show'));
