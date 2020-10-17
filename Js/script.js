@@ -185,3 +185,12 @@ function draw() {
   drawScore();
   drawBricks();
 }
+
+// canvas update for animation and drawing
+function update() {
+  moveBall();
+  movePaddle();
+  draw();
+  requestAnimationFrame(update);
+}
+update();
