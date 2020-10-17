@@ -169,3 +169,10 @@ function increaseScore() {
     );
   }
 }
+
+// show all bricks
+function showAllBricks() {
+  bricks.forEach((column) => {
+    column.forEach((brick) => (brick.visible = true));
+  });
+}
