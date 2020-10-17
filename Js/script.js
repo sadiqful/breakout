@@ -194,3 +194,13 @@ function update() {
   requestAnimationFrame(update);
 }
 update();
+
+// keydown event
+
+function keyDown(e) {
+  if (e.key === "Right" || e.key === "ArrowRight") {
+    paddle.dx = paddle.speed;
+  } else if (e.key === "Left" || e.key === "ArrowLeft") {
+    paddle.dx = -paddle.speed;
+  }
+}
