@@ -145,3 +145,13 @@ function moveBall() {
     score = 0;
   }
 }
+
+// score increase
+
+function increaseScore() {
+  score++;
+  if (score % (brickRowCount * brickColumnCount) === 0) {
+    ball.visible = false;
+    paddle.visible = false;
+  }
+}
