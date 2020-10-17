@@ -221,3 +221,8 @@ function keyUp(e) {
 
 document.addEventListener("keydown", keyDown);
 document.addEventListener("keyup", keyUp);
+
+// Rules event
+
+rulesBtn.addEventListener("click", () => rules.classList.add("show"));
+rulesBtn.addEventListener("click", () => rules.classList.remove("show"));
