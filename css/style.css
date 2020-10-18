@@ -61,7 +61,7 @@ canvas {
   width: 400px;
   padding: 20px;
   line-height: 1.5;
-  transform: translate(-400px);
+  transform: translateX(-400px);
   transition: transform 1s ease-in-out;
 }
 
