@@ -25,7 +25,7 @@ const paddle = {
   h: 10,
   speed: 8,
   dx: 0,
-  visible: true,
+  visible: true
 };
 
 const brickInfo = {
@@ -34,15 +34,14 @@ const brickInfo = {
   padding: 10,
   offsetX: 45,
   offsetY: 60,
-  visible: true,
+  visible: true
 };
 
 // creating breaks
 
 const bricks = [];
-for (let i = 0; i < brickColumnCount; i++) {
+for (let i = 0; i < brickRowCount; i++) {
   bricks[i] = [];
-
   for (let j = 0; j < brickColumnCount; j++) {
     const x = i * (brickInfo.w + brickInfo.padding) + brickInfo.offsetX;
     const y = j * (brickInfo.h + brickInfo.padding) + brickInfo.offsetY;
@@ -76,8 +75,8 @@ function drawScore() {
 }
 
 function drawBricks() {
-  bricks.forEach((column) => {
-    column.forEach((brick) => {
+  bricks.forEach(column => {
+    column.forEach(brick => {
       ctx.beginPath();
       ctx.rect(brick.x, brick.y, bricks.w, brick.h);
       ctx.fillStyle = bricks.visible ? "#ad55dd" : "transparent";
@@ -125,13 +124,13 @@ function moveBall() {
     ball.dy = -ball.speed;
   }
   // bricks collision
-  bricks.forEach((column) => {
-    column.forEach((brick) => {
+  bricks.forEach(column => {
+    column.forEach(brick => {
       if (brick.visible) {
         if (
           ball.x - ball.size > brick.x &&
           ball.x + ball.size < brick.x + brick.w &&
-          ball.y - ball.size > brick.y &&
+          ball.y + ball.size > brick.y &&
           ball.y - ball.size < brick.y + brick.h
         ) {
           ball.dy *= -1;
@@ -166,15 +165,15 @@ function increaseScore() {
         ball.y = canvas.height / 2;
         ball.visible = true;
         paddle.visible = true;
-      }.delay
+      },delay
     );
   }
 }
 
 // show all bricks
 function showAllBricks() {
-  bricks.forEach((column) => {
-    column.forEach((brick) => (brick.visible = true));
+  bricks.forEach(column => {
+    column.forEach(brick => (brick.visible = true));
   });
 }
 
@@ -226,4 +225,4 @@ document.addEventListener('keyup', keyUp);
 // Rules event
 
 rulesBtn.addEventListener('click', () => rules.classList.add('show'));
-rulesBtn.addEventListener('click', () => rules.classList.remove('show'));
+closeBtn.addEventListener('click', () => rules.classList.remove('show'));
